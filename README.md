@@ -3,7 +3,7 @@
 ### Java Programming Language
 
 This project is supporting the automation in testing course, in which students learn
-about different design pattern used to optimize their test scripts.
+about different design patterns used to optimize their test scripts.
 The following patterns are covered:
 - Linear scripting
 - Structured scripting
