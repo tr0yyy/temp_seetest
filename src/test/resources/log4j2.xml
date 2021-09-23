@@ -2,16 +2,16 @@
 <Configuration status="INFO">
     <Appenders>
         <Console name="ConsoleAppender" target="SYSTEM_OUT">
-            <PatternLayout pattern="[%-5level] - %d{yyyy-MM-dd HH:mm:ss.SSS} - [${ctx:ROUTING_KEY}] - [%t] %logger{36}:%L - %msg%n"/>
+            <PatternLayout pattern="[%-5level] - %d{yyyy-MM-dd HH:mm:ss.SSS} - [%t] %logger{36}:%L - %msg%n"/>
         </Console>
         <Routing name="DeviceRoutingAppender">
-            <Routes pattern="$${ctx:ROUTING_KEY}">
+            <Routes>
                 <Route>
-                    <File name="appender-${ctx:ROUTING_KEY}"
-                          fileName="target/logs/${ctx:ROUTING_KEY}/application-${date:yyyy-MM-dd-HHmm}.log"
+                    <File name="appender"
+                          fileName="target/logs/application-${date:yyyy-MM-dd-HHmm}.log"
                           immediateFlush="false"
                           append="true" >
-                        <PatternLayout pattern="[%-5level] - %d{yyyy-MM-dd HH:mm:ss.SSS} - [${ctx:ROUTING_KEY}] - [%t] %logger{36}:%L - %msg%n"/>
+                        <PatternLayout pattern="[%-5level] - %d{yyyy-MM-dd HH:mm:ss.SSS} - [%t] %logger{36}:%L - %msg%n"/>
                     </File>
                 </Route>
             </Routes>
