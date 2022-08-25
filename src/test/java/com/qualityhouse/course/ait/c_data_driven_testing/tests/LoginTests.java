@@ -7,9 +7,7 @@ import com.qualityhouse.course.ait.c_data_driven_testing.support.Utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class LoginTests {
 
@@ -19,10 +17,10 @@ public class LoginTests {
 
     private CommonPageObjects common = new CommonPageObjects(driver);
 
-    @BeforeMethod
+    @BeforeClass
     public void setup() { common.openApplication(); }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown() { common.closeApplication(); }
 
     @Test(dataProvider = "valid users", dataProviderClass = com.qualityhouse.course.ait.c_data_driven_testing.testdata.LoginTestData.class)
