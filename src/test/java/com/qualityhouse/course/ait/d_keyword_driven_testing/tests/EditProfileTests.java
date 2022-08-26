@@ -7,9 +7,7 @@ import com.qualityhouse.course.ait.d_keyword_driven_testing.testdata.EditProfile
 import com.qualityhouse.course.ait.d_keyword_driven_testing.testdata.LoginTestData;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class EditProfileTests {
 
@@ -21,14 +19,13 @@ public class EditProfileTests {
 
     private EditProfilePageObject editProfilePage = new EditProfilePageObject(driver);
 
-    @BeforeMethod
+    @BeforeClass
     public void setup() { common.openApplication(); }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown() {
         common.closeApplication();
     }
-
 
     @Test
     public void tcModifyUserProfileDetailsDirect() {

@@ -5,9 +5,7 @@ import com.qualityhouse.course.ait.e_process_driven_testing.pageobjects.CommonPa
 import com.qualityhouse.course.ait.e_process_driven_testing.pageobjects.LoginPageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class BuyBook {
 
@@ -20,10 +18,10 @@ public class BuyBook {
     private BooksPageObject bookPage = new BooksPageObject(driver);
 
 
-    @BeforeMethod
+    @BeforeClass
     public void setup() { common.openApplication(); }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown() {
         common.closeApplication();
     }
