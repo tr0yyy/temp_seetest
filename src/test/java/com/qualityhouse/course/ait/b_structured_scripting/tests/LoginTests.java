@@ -61,12 +61,22 @@ public class LoginTests {
     @Test
     public void tcTooManyUnsuccessfulLogins() {
         // todo: Exercise no. 1 - login 3 times with username student1 by using wrong password; check for warning message
-
-   }
+        for(int i = 1 ; i <= 3 ; i++) {
+        LoginLib.navigateToLoginPage(driver);
+            LoginLib.loginAsUser(driver, "student1", "wrong_password");
+            Assert.assertTrue(driver.findElement(By.cssSelector("a[href='index.php?page=login']")).isDisplayed(), "User has logged in.");
+        }
+    }
 
     @Test
     public void tcLoginWithSeveralUsers() {
         // todo: Exercise no. 2 - perform login (and logout) of three users (student1, student2, student3), sequentially
+        for(int i = 1 ; i <= 3 ; i++) {
+            LoginLib.navigateToLoginPage(driver);
+            LoginLib.loginAsUser(driver, "student" + i, "stpass" + i);
+            CommonLib.logoutFromApp(driver);
+            Assert.assertTrue(driver.findElement(By.cssSelector("a[href='index.php?page=login']")).isDisplayed(), "User has logged in.");
+        }
 
     }
 

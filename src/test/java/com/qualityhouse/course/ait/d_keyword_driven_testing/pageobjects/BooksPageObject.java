@@ -110,6 +110,14 @@ public class BooksPageObject {
         search();
     }
 
+    public void clickOnBook(String title) {
+        List<WebElement> listedBooks = listOfBooks();
+        for (WebElement b : listedBooks) {
+            if (b.findElement(lblBookTitle).getText().equals(title))
+                b.findElement(lblBookTitle).click();
+        }
+    }
+
     // returns: boolean - true if book is listed on the page
     public boolean isBookInList(String title) {
         List<WebElement> listedBooks = listOfBooks();
@@ -120,6 +128,15 @@ public class BooksPageObject {
             if (b.findElement(lblBookTitle).getText().equals(title)) {bookFound = true; }
         }
         return bookFound;
+    }
+
+    public boolean isDetailsBookOpened(String title) {
+        boolean isDisplayed = false;
+
+        if (driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[1]/b[3]")).isDisplayed())
+            isDisplayed = true;
+
+        return isDisplayed;
     }
 
     // returns: WebElement - pointer to wanted book listed on the page

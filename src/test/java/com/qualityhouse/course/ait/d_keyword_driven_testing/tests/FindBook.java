@@ -43,6 +43,16 @@ public class FindBook {
     public void tcVerifyDetailsOfFoundBook() {
         // todo: Exercise no. 2 - search for a book with title "The miracles of the Nature" and list its details
 
+        bookPage.openBooks();
+
+        bookPage.searchForBook("", "The miracles of the Nature", "", "");
+
+        Assert.assertTrue(bookPage.isBookInList("The miracles of the Nature"), "Book is not in the list!");
+
+        bookPage.clickOnBook("The miracles of the Nature");
+
+        Assert.assertTrue(bookPage.isDetailsBookOpened("The miracles of the Nature"), "Book Details are not opened");
+
     }
 
     @Test

@@ -111,6 +111,57 @@ public class LoginTests {
     @Test
     public void tcLoginWithSeveralUsers() {
         // todo: Exercise no. 1 - perform login (and logout) of three users (student1, student2, student3), sequentially
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("http://acme.qualityhouse.com/build3/index.php");
+
+        driver.findElement(By.cssSelector("a[href='index.php?page=login']")).click();
+
+        driver.findElement(By.id("username")).sendKeys("student1");
+
+        driver.findElement(By.name("userpass")).sendKeys("stpass1");
+
+        driver.findElement(By.name("ses_login")).click();
+
+        driver.findElement(By.cssSelector("a[href='index.php?page=logout']")).click();
+
+        driver.findElement(By.cssSelector("a.big-btn[href='index.php?ses_logout=1']")).click();
+
+        Assert.assertTrue(driver.findElement(By.cssSelector("a[href='index.php?page=login']")).isDisplayed(), "User is not logged out.");
+
+        driver.findElement(By.cssSelector("a[href='index.php?page=login']")).click();
+
+        driver.findElement(By.id("username")).sendKeys("student2");
+
+        driver.findElement(By.name("userpass")).sendKeys("stpass2");
+
+        driver.findElement(By.name("ses_login")).click();
+
+        driver.findElement(By.cssSelector("a[href='index.php?page=logout']")).click();
+
+        driver.findElement(By.cssSelector("a.big-btn[href='index.php?ses_logout=1']")).click();
+
+        Assert.assertTrue(driver.findElement(By.cssSelector("a[href='index.php?page=login']")).isDisplayed(), "User is not logged out.");
+
+        driver.findElement(By.cssSelector("a[href='index.php?page=login']")).click();
+
+        driver.findElement(By.id("username")).sendKeys("student3");
+
+        driver.findElement(By.name("userpass")).sendKeys("stpass3");
+
+        driver.findElement(By.name("ses_login")).click();
+
+        driver.findElement(By.cssSelector("a[href='index.php?page=logout']")).click();
+
+        driver.findElement(By.cssSelector("a.big-btn[href='index.php?ses_logout=1']")).click();
+
+        Assert.assertTrue(driver.findElement(By.cssSelector("a[href='index.php?page=login']")).isDisplayed(), "User is not logged out.");
+
+        driver.close();
+
+
+
+
     }
 
 }
